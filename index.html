@@ -1,13 +1,223 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="ufr-8">
-<title>Mon Site</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services pour animaux | Animaux Care</title>
+<meta name="description" content="Plateforme de services pour animaux : toilettage, hôtel, garderie de jour, éducation canine, soins vétérinaires et adoption." />
+
+<style>
+/* ====== 基础 ====== */
+:root{
+  --brand:#9E9086;        /* 顶部与页脚主色 */
+  --accent:#177e93;       /* 导航背景/高亮（可换） */
+  --bg:#FFF8F0;
+  --card:#FFF1CC;
+  --ink:#4B3A2E;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background-color:var(--bg);
+  color:var(--ink);
+}
+
+/* ====== 顶部 Header（品牌条） ====== */
+header{
+  background-color:var(--brand);
+  color:#fff;
+}
+.header-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+header h1{
+  margin:0;
+  font-family:'Comic Sans MS', cursive;
+  font-size:32px;
+}
+
+/* ====== 顶部导航（含 Services 下拉） ====== */
+.topnav{
+  position:sticky; top:0; z-index:1000;
+  background:var(--accent);
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+.nav-wrap{
+  max-width:1100px; margin:0 auto; padding:0 16px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; padding:10px 0;
+  font-weight:700; color:#fff; text-decoration:none;
+}
+.brand-dot{width:10px;height:10px;border-radius:999px;background:#fff;display:inline-block}
+
+/* 桌面菜单 */
+.nav-list{list-style:none; margin:0; padding:0; display:flex; gap:18px; align-items:center;}
+.nav-list > li{position:relative}
+.nav-list a{
+  color:#fff; text-decoration:none; font-weight:600; text-transform:lowercase;
+  padding:12px 4px; display:inline-block; border-bottom:2px solid transparent;
+}
+.nav-list a:hover,.nav-list a:focus{border-bottom-color:#fff; outline:none}
+
+/* 下拉菜单面板 */
+.dropdown:focus-within .menu-panel,
+.dropdown:hover .menu-panel{opacity:1; visibility:visible; transform:translateY(0)}
+.menu-trigger{display:inline-flex; align-items:center; gap:6px; cursor:pointer}
+.menu-panel{
+  position:absolute; left:0; top:100%;
+  background:#fff; color:#24475a; min-width:260px;
+  border:1px solid #e3e8ec; border-radius:10px;
+  box-shadow:0 10px 24px rgba(16,24,40,.12);
+  padding:8px; margin-top:8px;
+  opacity:0; visibility:hidden; transform:translateY(6px);
+  transition:.15s ease;
+}
+.menu-panel a{
+  color:#24475a; text-transform:none; font-weight:600;
+  display:flex; gap:10px; align-items:center;
+  padding:10px 12px; border-radius:8px; border-bottom:none;
+}
+.menu-panel a:hover,.menu-panel a:focus{background:#f5fbfd; outline:none}
+
+/* 图标占位（可换 SVG/图片） */
+.icon{width:20px}
+
+/* ====== 移动端 ====== */
+.hamburger{
+  display:none; background:transparent; border:1px solid rgba(255,255,255,.6);
+  color:#fff; padding:8px 10px; border-radius:8px;
+}
+@media (max-width:860px){
+  .hamburger{display:inline-flex}
+  .nav-list{
+    position:fixed; inset:auto 0 0 0; top:56px;
+    background:var(--accent); flex-direction:column; align-items:stretch;
+    padding:10px 14px; gap:6px; max-height:0; overflow:hidden; transition:max-height .25s ease;
+  }
+  .nav-open .nav-list{max-height:75vh}
+  .dropdown .menu-panel{position:static; box-shadow:none; border-radius:8px; margin:4px 0; opacity:1; visibility:visible; transform:none}
+}
+
+/* ====== 主内容/卡片 ====== */
+article{
+  max-width:1100px; margin:20px auto; padding:30px; background:var(--card);
+  border-radius:12px; min-height:380px;
+}
+article h2{color:var(--brand)}
+.exemple{
+  background-color:#FFE5B4; padding:15px; border-left:5px solid var(--brand);
+  border-radius:8px; margin-top:20px;
+}
+
+/* ====== 页脚 ====== */
+footer{
+  background-color:var(--brand); color:#fff; text-align:center;
+  padding:25px 15px; border-radius:10px 10px 0 0; font-size:15px; margin-top:40px;
+}
+footer .footer-links{margin-bottom:10px}
+footer .footer-links a{color:#fff; margin:0 10px; text-decoration:none}
+footer .footer-links a:hover{text-decoration:underline}
+footer .socials{margin-top:10px; font-size:18px}
+</style>
 </head>
+
 <body>
+  <!-- 顶部品牌条 -->
+  <header>
+    <div class="header-wrap">
+      <h1>🐾 Animaux Care – Services pour Animaux</h1>
+    </div>
+  </header>
 
-<h1>Mon Site </h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+  <!-- 顶部导航：第二项为 services 下拉 -->
+  <nav class="topnav" aria-label="Navigation principale">
+    <div class="nav-wrap" id="navWrap">
+      <a class="brand" href="#">
+        <span class="brand-dot" aria-hidden="true"></span>
+        Animaux Care
+      </a>
 
+      <button class="hamburger" id="burger" aria-expanded="false" aria-controls="primary-menu">menu</button>
+
+      <ul class="nav-list" id="primary-menu">
+        <li><a href="#home">home</a></li>
+
+        <!-- 下拉：services -->
+        <li class="dropdown">
+          <a href="#services" class="menu-trigger" aria-haspopup="true" aria-expanded="false">
+            services
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <div class="menu-panel" role="menu" aria-label="services">
+            <a href="#grooming" role="menuitem">🐕 Toilettage</a>
+            <a href="#hotel" role="menuitem">🏠 Pension</a>
+            <a href="#daycamp" role="menuitem">🎾 Garderie</a>
+            <a href="#training" role="menuitem">🎓 Éducation</a>
+            <a href="#vet" role="menuitem">🏥 Soins Vétérinaires</a>
+            <a href="#adoption" role="menuitem">❤️ Adoption</a>
+          </div>
+        </li>
+
+        <li><a href="#petshotel">petshotel</a></li>
+        <li><a href="#daycamp">doggie day camp</a></li>
+        <li><a href="#training">training</a></li>
+        <li><a href="#vet">vet care</a></li>
+        <li><a href="#help">help</a></li>
+        <li><a href="#shop">shop</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 主体内容（保持你现有内容） -->
+  <article id="home">
+    <h2>Bienvenue sur Animaux Care !</h2>
+    <p>Nous aimons les animaux autant que vous 🐶🐱
+      Trouvez facilement un service fiable pour votre compagnon : promenade, toilettage, pension, ou vétérinaire.</p>
+
+    <div class="exemple" id="grooming">
+      <h3>✨ Exemple : Service de Toilettage</h3>
+      <p>Réservez un toiletteur certifié qui viendra chercher votre chien, l’amènera au salon de beauté, et vous le ramènera tout propre !</p>
+    </div>
+
+    <div class="exemple" id="daycamp">
+      <h3>💡 Conseil du Jour</h3>
+      <p>Un chien heureux, c’est un chien qui sort ! Offrez-lui une promenade quotidienne de 30 minutes minimum.</p>
+    </div>
+  </article>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="footer-links">
+      <a href="#contact">📧 Contact</a> |
+      <a href="#about">À propos</a> |
+      <a href="#legal">Mentions légales</a>
+    </div>
+    <div class="socials">
+      🐾 Suivez-nous :
+      <a href="#">Facebook</a> ·
+      <a href="#">Instagram</a> ·
+      <a href="#">X (Twitter)</a>
+    </div>
+    <p>© Animaux Care, 2025 — Fait avec ❤️ en France</p>
+  </footer>
+
+<script>
+/* 移动端：展开/收起主菜单 */
+const burger = document.getElementById('burger');
+const wrap   = document.getElementById('navWrap');
+burger.addEventListener('click', () => {
+  const open = wrap.classList.toggle('nav-open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+</script>
 </body>
 </html>
