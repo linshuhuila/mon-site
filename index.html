@@ -49,13 +49,13 @@ header h1{
   margin:0 auto;
   padding:0 16px;
   display:flex;
-  justify-content:center;  /* 居中导航 */
+  justify-content:center;
 }
 
 .nav-list{
   list-style:none;
   display:flex;
-  justify-content:space-evenly; /* 四个菜单平均分 */
+  justify-content:space-evenly; 
   align-items:center;
   width:100%;
   margin:0;
@@ -79,7 +79,7 @@ header h1{
   border-bottom-color:#fff;
 }
 
-/* 下拉菜单 */
+/* ====== 下拉菜单 Services ====== */
 .dropdown:hover .menu-panel,
 .dropdown:focus-within .menu-panel{
   opacity:1;visibility:visible;transform:translateY(0);
@@ -110,7 +110,7 @@ header h1{
   background:#f0f7f9;
 }
 
-/* ====== 主内容 ====== */
+/* ====== ACCUEIL 主内容 ====== */
 article{
   max-width:1100px;
   margin:20px auto;
@@ -155,12 +155,13 @@ article{
 }
 .btn{
   display:inline-block;
-  margin-top:10px;
+  margin-top:20px;
   padding:8px 14px;
   background:var(--accent);
   color:#fff;
   text-decoration:none;
   border-radius:999px;
+  font-size:15px;
 }
 .btn:hover{
   opacity:.9;
@@ -195,7 +196,7 @@ footer .socials{margin-top:10px;font-size:17px;}
   <h1>🐾 Animaux Care – Services pour Animaux</h1>
 </header>
 
-<!-- ====== 顶部导航（四个平均分布） ====== -->
+<!-- ====== 顶部导航 ====== -->
 <nav class="topnav">
   <div class="nav-wrap">
     <ul class="nav-list">
@@ -222,7 +223,7 @@ footer .socials{margin-top:10px;font-size:17px;}
   </div>
 </nav>
 
-<!-- ====== ACCUEIL 内容 ====== -->
+<!-- ====== ACCUEIL ====== -->
 <article id="home">
   <h2>Bienvenue sur Animaux Care !</h2>
   <p>Nous aimons les animaux autant que vous 🐶🐱  
@@ -240,34 +241,36 @@ footer .socials{margin-top:10px;font-size:17px;}
 </article>
 
 
-<!-- ====== SHOP 模块 ====== -->
+<!-- ====== SHOP ====== -->
 <section id="shop" class="shop-section">
   <h2>Notre boutique</h2>
   <p>Découvrez une sélection d’articles pour le bien-être de vos animaux.</p>
 
   <div class="shop-grid">
+
+    <!-- Chiens -->
     <div class="shop-card">
       <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800" />
-      <h3>Articles pour chiens</h3>
-      <a class="btn" href="#">Voir catégorie</a>
+      <a class="btn" href="#">Pour chiens</a>
     </div>
 
+    <!-- Chats -->
     <div class="shop-card">
       <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800" />
-      <h3>Articles pour chats</h3>
-      <a class="btn" href="#">Voir catégorie</a>
+      <a class="btn" href="#">Pour chats</a>
     </div>
 
+    <!-- Autres animaux -->
     <div class="shop-card">
       <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=800" />
-      <h3>Autres animaux</h3>
-      <a class="btn" href="#">Voir catégorie</a>
+      <a class="btn" href="#">Pour d'autres animaux</a>
     </div>
+
   </div>
 </section>
 
 
-<!-- ====== 页脚 ====== -->
+<!-- ====== FOOTER ====== -->
 <footer>
   <div class="footer-links">
     <a href="mailto:contact@AnimauxCare.com">📧 Contact</a> |
@@ -286,5 +289,6 @@ footer .socials{margin-top:10px;font-size:17px;}
 
 </body>
 </html>
+
 
 
