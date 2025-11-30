@@ -1,362 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Animaux Care – Santé & Prévention</title>
-
-<style>
-:root{
-  --brand:#A8642D;       /* Header/Footer brown */
-  --accent:#C07A3F;      /* Navigation */
-  --bg:#F6EBD8;          /* Cream background */
-  --ink:#4B3A2E;         /* Text brown */
-  --card:#FFFDF9;        /* White-cream cards */
-  --btn:#C07A3F;         /* Warm brown button */
-  --btn-hover:#A8642D;
-}
-
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-
-body{
-  margin:0;
-  font-family:'Segoe UI', Arial, sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-}
-
-/* HEADER */
-header{
-  background:var(--brand);
-  color:#fff;
-  text-align:center;
-  padding:14px 0;
-}
-header h1{
-  margin:0;
-  font-family:'Comic Sans MS', cursive;
-  font-size:32px;
-}
-
-/* NAVIGATION */
-.topnav{
-  position:sticky;top:0;z-index:1000;
-  background:var(--accent);
-  border-bottom:1px solid rgba(255,255,255,.15);
-  padding:10px 0;
-}
-.nav-wrap{
-  max-width:1100px; margin:0 auto; padding:0 16px;
-  display:flex; justify-content:center;
-}
-.nav-list{
-  list-style:none; margin:0; padding:0;
-  display:flex; flex-wrap:wrap; justify-content:center;
-  gap:8px 20px;
-}
-.nav-list a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  padding:10px 6px;
-  font-size:16px;
-  border-bottom:2px solid transparent;
-  display:inline-block;
-}
-.nav-list a:hover{ border-bottom-color:#fff; }
-
-/* BANNER */
-.hero-banner{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-/* INTRO BLOCK */
-.intro-block{
-  max-width:1100px;
-  margin:20px auto;
-  background:var(--card);
-  padding:32px;
-  border-radius:16px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.06);
-  font-size:18px;
-  line-height:1.6;
-}
-.intro-block .subtitle{
-  margin-top:4px;
-  font-style:italic;
-  color:#7a5a3a;
-}
-
-/* ARTICLE / WEB DOCUMENTAIRE */
-.main-article{
-  max-width:1100px;
-  margin:30px auto;
-  background:var(--card);
-  padding:28px 30px;
-  border-radius:18px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.07);
-}
-.main-article header h2{
-  margin-top:0;
-  font-size:26px;
-}
-.article-meta{
-  font-size:14px;
-  color:#806958;
-}
-
-/* Sommaire */
-.article-sommaire{
-  margin:20px 0 24px;
-  padding:16px 20px;
-  background:#f1e2cc;
-  border-radius:14px;
-}
-.article-sommaire h3{
-  margin-top:0;
-  font-size:18px;
-}
-.article-sommaire ul{
-  margin:8px 0 0;
-  padding-left:18px;
-}
-.article-sommaire li{
-  margin-bottom:4px;
-}
-.article-sommaire a{
-  color:var(--accent);
-  text-decoration:none;
-}
-.article-sommaire a:hover{
-  text-decoration:underline;
-}
-
-/* sections inside article */
-.main-article section{
-  margin-top:24px;
-}
-.main-article h3{
-  font-size:22px;
-  margin-bottom:8px;
-}
-.main-article p{
-  line-height:1.7;
-  font-size:16px;
-}
-
-/* Figure + légende */
-.article-figure{
-  margin:18px 0;
-  text-align:center;
-}
-.article-figure img{
-  max-width:100%;
-  border-radius:14px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.12);
-}
-.article-figure figcaption{
-  font-size:14px;
-  margin-top:8px;
-  color:#6d5b4b;
-}
-
-/* GALERIE */
-.gallery-section{
-  max-width:1100px;
-  margin:30px auto;
-  background:#fff;
-  padding:24px 28px;
-  border-radius:14px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-.gallery-section h2{
-  margin-top:0;
-}
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
-  gap:16px;
-  margin-top:16px;
-}
-.gallery-card{
-  background:#f9f9f9;
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid #e6e6e6;
-}
-.gallery-card img,
-.gallery-card video{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-.gallery-card figcaption{
-  padding:8px 10px;
-  font-size:13px;
-  color:#4a3a30;
-  background:#fffdf9;
-}
-
-/* FAQ */
-.faq-section{
-  max-width:1100px;
-  margin:40px auto;
-  background:var(--card);
-  padding:30px;
-  border-radius:16px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-.faq-section h2{
-  text-align:center;
-  font-size:30px;
-  margin-bottom:25px;
-  color:var(--brand);
-}
-.faq-category{
-  margin-top:10px;
-}
-.faq-category h3{
-  font-size:22px;
-  margin-bottom:15px;
-  padding-left:5px;
-  color:var(--accent);
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.faq-item{
-  margin-bottom:15px;
-  border-radius:12px;
-  overflow:hidden;
-  background:#fff;
-  border:1px solid #e5d8c9;
-}
-.faq-question{
-  width:100%;
-  background:#fff;
-  padding:16px;
-  font-size:18px;
-  text-align:left;
-  cursor:pointer;
-  color:var(--ink);
-  border:none;
-  outline:none;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  transition:background .2s;
-}
-.faq-question:hover{
-  background:rgba(200,160,120,0.12);
-}
-.faq-icon{
-  font-size:22px;
-  color:var(--brand);
-  transition:transform .2s;
-}
-.faq-answer{
-  max-height:0;
-  overflow:hidden;
-  padding:0 18px;
-  background:#fff7ef;
-  color:#4a3a30;
-  font-size:16px;
-  line-height:1.6;
-  transition:max-height .3s ease, padding .3s ease;
-  border-top:1px solid #eadac3;
-}
-.faq-item.open .faq-answer{
-  max-height:300px;
-  padding:16px 18px;
-}
-.faq-item.open .faq-icon{
-  transform:rotate(90deg);
-}
-
-/* GLOSSAIRE & BIBLIO */
-.glossaire-section,
-.biblio-section{
-  max-width:1100px;
-  margin:30px auto;
-  background:#fff;
-  padding:24px 28px;
-  border-radius:14px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-.glossaire-section h2,
-.biblio-section h2{
-  margin-top:0;
-}
-.glossaire-section dl{
-  margin:0;
-}
-.glossaire-section dt{
-  font-weight:700;
-  margin-top:12px;
-}
-.glossaire-section dd{
-  margin:4px 0 8px 0;
-  font-size:15px;
-}
-.biblio-section ul{
-  margin-top:8px;
-  padding-left:20px;
-}
-.biblio-section li{
-  margin-bottom:6px;
-  font-size:15px;
-}
-
-/* FOOTER */
-footer{
-  background:var(--brand);
-  color:#fff;
-  text-align:center;
-  padding:25px;
-  margin-top:40px;
-  border-radius:12px 12px 0 0;
-}
-footer a{
-  color:#fff;
-  text-decoration:none;
-}
-footer a:hover{ text-decoration:underline; }
-footer p{
-  margin:6px 0;
-}
-
-/* 简单响应式 */
-@media (max-width:768px){
-  .faq-question{
-    font-size:16px;
-  }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animaux Care – Santé & Prévention</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
   <h1>🐾 Animaux Care – Santé & Prévention</h1>
+  <p>Chiens et chats au quotidien – Comprendre, observer, protéger.</p>
 </header>
 
-<!-- NAVIGATION -->
 <nav class="topnav">
   <div class="nav-wrap">
     <ul class="nav-list">
-      <li><a href="#banner">Accueil</a></li>
-      <li><a href="#documentaire">Article</a></li>
-      <li><a href="#besoins">Besoins de base</a></li>
-      <li><a href="#prevention">Prévention</a></li>
-      <li><a href="#securite">Sécurité</a></li>
-      <li><a href="#bien-etre">Bien-être émotionnel</a></li>
-      <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#glossaire">Glossaire</a></li>
-      <li><a href="#biblio">Biblio</a></li>
+      <li><a href="index.html#banner">Accueil</a></li>
+
+      <!-- 下拉菜单：Guides -->
+      <li class="dropdown">
+        <a href="index.html#documentaire">Guides ▼</a>
+        <div class="menu-panel">
+          <a href="index.html#besoins">Besoins de base</a>
+          <a href="index.html#prevention">Prévention au quotidien</a>
+          <a href="index.html#securite">Sécurité maison & extérieur</a>
+          <a href="index.html#bien-etre">Bien-être émotionnel</a>
+        </div>
+      </li>
+
+      <li><a href="index.html#galerie">Galerie</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="glossaire.html">Glossaire</a></li>
+      <li><a href="biblio.html">Biblio</a></li>
     </ul>
   </div>
 </nav>
@@ -366,8 +43,8 @@ footer p{
   <img src="images/Top Bienvenue-1.jpg" alt="Bannière Animaux Care" class="hero-banner">
 </div>
 
-<!-- INTRO BLOCK -->
-<div class="intro-block">
+<!-- INTRO -->
+<section class="intro-block" id="intro">
   <h2>Introduction – Pourquoi la santé et la prévention ?</h2>
   <p class="subtitle">Prévenir chaque jour, c’est déjà prendre soin de son animal.</p>
   <p>
@@ -383,9 +60,9 @@ footer p{
     <a href="#bien-etre">bien-être émotionnel</a>. Il ne remplace pas l’avis d’un professionnel,
     mais offre des repères concrets pour mieux comprendre et accompagner votre compagnon.
   </p>
-</div>
+</section>
 
-<!-- ARTICLE / WEB DOCUMENTAIRE -->
+<!-- ARTICLE -->
 <article id="documentaire" class="main-article">
   <header>
     <h2>Chiens et chats : prévenir pour protéger</h2>
@@ -393,7 +70,6 @@ footer p{
       Web documentaire réalisé dans le cadre du Projet «&nbsp;document numérique&nbsp;» – Master CTM, 2025.
     </p>
 
-    <!-- SOMMAIRE DE L'ARTICLE -->
     <nav class="article-sommaire" aria-label="Sommaire de l'article">
       <h3>Sommaire</h3>
       <ul>
@@ -401,8 +77,8 @@ footer p{
         <li><a href="#prevention">2. Prévention simple au jour le jour</a></li>
         <li><a href="#securite">3. Sécurité à la maison et à l’extérieur</a></li>
         <li><a href="#bien-etre">4. Bien-être émotionnel et routine</a></li>
-        <li><a href="#glossaire">5. Glossaire</a></li>
-        <li><a href="#biblio">6. Bibliographie &amp; Sitographie</a></li>
+        <li><a href="glossaire.html">5. Glossaire</a></li>
+        <li><a href="biblio.html">6. Bibliographie &amp; Sitographie</a></li>
       </ul>
     </nav>
   </header>
@@ -419,8 +95,8 @@ footer p{
       Chez le chien comme chez le chat, un rythme régulier des repas et du sommeil contribue à stabiliser le
       fonctionnement digestif et à réduire le stress. Observer l’appétit, la consommation d’eau, la qualité des selles
       ou du pelage offre déjà de précieuses informations sur l’état général de l’animal.
-      Comme le rappellent de nombreux guides de <a href="#g-prevention">prévention</a>, «&nbsp;mieux vaut intervenir
-      tôt que trop tard&nbsp;».
+      Comme le rappellent de nombreux guides de
+      <a href="glossaire.html#g-prevention">prévention</a>, «&nbsp;mieux vaut intervenir tôt que trop tard&nbsp;».
     </p>
 
     <figure class="article-figure">
@@ -436,15 +112,15 @@ footer p{
   <section id="prevention">
     <h3>2. Prévention simple au jour le jour</h3>
     <p>
-      La <a href="#g-prevention">prévention</a> passe par des gestes répétitifs mais fondamentaux&nbsp;:
+      La <a href="glossaire.html#g-prevention">prévention</a> passe par des gestes répétitifs mais fondamentaux&nbsp;:
       brosser le pelage, vérifier les oreilles, couper les griffes lorsque c’est nécessaire, proposer des jeux adaptés
       pour éviter l’ennui et surveiller le poids. Ces routines permettent de repérer très tôt un changement&nbsp;:
       démangeaisons, gêne à la marche, nœuds dans le poil, griffes trop longues, etc.
     </p>
     <p>
-      L’<a href="#g-enrichissement">enrichissement</a> du milieu – tapis de fouille, jouets à mâcher, arbres à chat,
-      cachettes – aide à prévenir certains comportements indésirables. Un animal stimulé, mais pas sur-sollicité,
-      est souvent plus apaisé et moins destructeur.
+      L’<a href="glossaire.html#g-enrichissement">enrichissement</a> du milieu – tapis de fouille, jouets à mâcher,
+      arbres à chat, cachettes – aide à prévenir certains comportements indésirables. Un animal stimulé, mais pas
+      sur-sollicité, est souvent plus apaisé et moins destructeur.
     </p>
   </section>
 
@@ -471,14 +147,14 @@ footer p{
       La santé ne se résume pas au corps&nbsp;: la dimension émotionnelle est essentielle.
       Un chien ou un chat qui ne comprend pas ce qu’on attend de lui, qui reste seul trop longtemps ou qui vit
       dans un environnement bruyant peut développer des
-      <a href="#g-signaux-stress">signaux de stress</a>&nbsp;:
+      <a href="glossaire.html#g-signaux-stress">signaux de stress</a>&nbsp;:
       agitation, léchages excessifs, miaulements répétés, malpropreté, etc.
     </p>
     <p>
-      Mettre en place une <a href="#g-routine">routine</a> prévisible (heures de repas, temps de jeu, moments de calme)
-      rassure l’animal. Des interactions positives, basées sur la récompense et la communication bienveillante,
-      renforcent la confiance. Pour certains animaux sensibles, organiser une
-      <a href="#g-zone-retrait">zone de retrait</a> – panier dans une pièce calme, perchoir en hauteur –
+      Mettre en place une <a href="glossaire.html#g-routine">routine</a> prévisible (heures de repas, temps de jeu,
+      moments de calme) rassure l’animal. Des interactions positives, basées sur la récompense et la communication
+      bienveillante, renforcent la confiance. Pour certains animaux sensibles, organiser une
+      <a href="glossaire.html#g-zone-retrait">zone de retrait</a> – panier dans une pièce calme, perchoir en hauteur –
       peut faire toute la différence.
     </p>
   </section>
@@ -588,7 +264,7 @@ footer p{
       </button>
       <div class="faq-answer">
         Agitation, léchage répétitif, halètement, miaulements ou aboiements excessifs, isolement,
-        changements d’appétit ou de propreté peuvent faire partie des <strong>signes de stress</strong>.
+        changements d’appétit ou de propreté peuvent faire partie des signes de stress.
         Il est important d’observer ce qui déclenche ces réactions.
       </div>
     </div>
@@ -599,7 +275,7 @@ footer p{
         <span class="faq-icon">➤</span>
       </button>
       <div class="faq-answer">
-        Oui, disposer d’une <strong>zone de retrait</strong> calme où l’animal peut se reposer sans être dérangé
+        Oui, disposer d’une zone de retrait calme où l’animal peut se reposer sans être dérangé
         contribue à son bien-être émotionnel et à la qualité de son sommeil.
       </div>
     </div>
@@ -619,74 +295,6 @@ footer p{
   </div>
 </section>
 
-<!-- GLOSSAIRE -->
-<section id="glossaire" class="glossaire-section">
-  <h2>Glossaire</h2>
-  <dl>
-    <dt id="g-prevention">Prévention</dt>
-    <dd>
-      Ensemble des actions destinées à réduire le risque d’apparition de problèmes de santé ou de comportement
-      chez l’animal.
-    </dd>
-
-    <dt id="g-enrichissement">Enrichissement</dt>
-    <dd>
-      Aménagement du milieu de vie pour stimuler les sens et les capacités de l’animal (jeux, objets à explorer,
-      cachettes, arbres à chat, etc.).
-    </dd>
-
-    <dt id="g-routine">Routine</dt>
-    <dd>
-      Organisation régulière des journées (repas, sorties, jeux, repos) qui aide l’animal à anticiper et à se sentir
-      en sécurité.
-    </dd>
-
-    <dt id="g-signaux-stress">Signaux de stress</dt>
-    <dd>
-      Comportements indiquant un inconfort&nbsp;: halètement, léchage répétitif, gémissements, fuite, malpropreté,
-      agitation, etc.
-    </dd>
-
-    <dt id="g-zone-retrait">Zone de retrait</dt>
-    <dd>
-      Endroit calme où l’animal peut se reposer ou s’isoler, sans être dérangé par les bruits ou les interactions.
-    </dd>
-  </dl>
-</section>
-
-<!-- BIBLIO / SITOGRAPHIE -->
-<section id="biblio" class="biblio-section">
-  <h2>Bibliographie (exemples de format)</h2>
-  <ul>
-    <li>
-      Auteur, A. (2021). <em>Titre de l’ouvrage sur la santé et le bien-être du chien</em>. Éditeur.
-    </li>
-    <li>
-      Auteur, B. &amp; Auteur, C. (2020). «&nbsp;Titre de l’article sur la prévention chez le chat&nbsp;».
-      <em>Nom de la revue</em>, 12(3), 45–58.
-    </li>
-  </ul>
-
-  <h2>Sitographie</h2>
-  <ul>
-    <li>
-      <a href="https://www.example-prevention-animale.org" target="_blank" rel="noopener noreferrer">
-        Site d’information sur la prévention des risques domestiques pour les animaux
-      </a>
-    </li>
-    <li>
-      <a href="https://www.example-bien-etre-animal.fr" target="_blank" rel="noopener noreferrer">
-        Plateforme dédiée au bien-être et à l’enrichissement du milieu de vie
-      </a>
-    </li>
-  </ul>
-
-  <p style="font-size:13px;margin-top:14px;">
-    Remarque&nbsp;: ces références sont fournies à titre d’exemple de format compatible avec un logiciel de gestion
-    de références (comme Zotero). Remplacez-les par vos propres sources réelles.
-  </p>
-</section>
-
 <script>
 document.querySelectorAll(".faq-item").forEach(item=>{
   const btn = item.querySelector(".faq-question");
@@ -698,7 +306,6 @@ document.querySelectorAll(".faq-item").forEach(item=>{
 });
 </script>
 
-<!-- FOOTER -->
 <footer>
   <a href="mailto:contact@AnimauxCare.com?subject=Question%20-%20Sant%C3%A9%20et%20pr%C3%A9vention&body=Bonjour%2C%0AJe%20souhaite%20avoir%20des%20informations%20sur%20votre%20site%20d%C3%A9di%C3%A9%20%C3%A0%20la%20sant%C3%A9%20et%20%C3%A0%20la%20pr%C3%A9vention%20des%20animaux.%0AMerci%20d%27avance.%0A">
     Contact
