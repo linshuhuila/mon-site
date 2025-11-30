@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Animaux Care – Web documentaire & services pour animaux</title>
+<title>Animaux Care – Santé & Prévention</title>
 
 <style>
 :root{
@@ -53,41 +53,21 @@ header h1{
 }
 .nav-list{
   list-style:none; margin:0; padding:0;
-  display:flex; justify-content:space-evenly;
-  width:100%;
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:8px 20px;
 }
 .nav-list a{
   color:#fff;
   text-decoration:none;
   font-weight:600;
-  padding:16px 10px;
-  font-size:18px;
+  padding:10px 6px;
+  font-size:16px;
   border-bottom:2px solid transparent;
   display:inline-block;
 }
 .nav-list a:hover{ border-bottom-color:#fff; }
 
-/* DROPDOWN */
-.dropdown{ position:relative; }
-.menu-panel{
-  opacity:0; visibility:hidden; transform:translateY(5px);
-  position:absolute; top:100%; left:0;
-  min-width:220px; background:#fff;
-  border-radius:10px; padding:8px;
-  box-shadow:0 6px 20px rgba(0,0,0,.15);
-  transition:.15s ease;
-}
-.dropdown:hover .menu-panel{
-  opacity:1; visibility:visible; transform:translateY(0);
-}
-.menu-panel a{
-  color:#444; padding:10px;
-  display:block; text-decoration:none;
-  border-radius:6px;
-}
-.menu-panel a:hover{ background:#f3f3f3; }
-
-/* BANNER - 显示完整图片 */
+/* BANNER */
 .hero-banner{
   width:100%;
   height:auto;
@@ -184,49 +164,6 @@ header h1{
   color:#6d5b4b;
 }
 
-/* SHOP SECTION */
-.shop-section{
-  max-width:1100px;
-  margin:30px auto;
-  background:#fff;
-  padding:24px 28px;
-  border-radius:14px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-.shop-section h2{
-  margin-top:0;
-}
-.shop-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-.shop-card{
-  background:#f9f9f9;
-  border-radius:12px;
-  padding:12px;
-  border:1px solid #e6e6e6;
-  text-align:center;
-}
-.shop-card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:12px;
-}
-.btn{
-  display:inline-block;
-  margin-top:14px;
-  padding:10px 16px;
-  background:var(--btn);
-  color:white;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:15px;
-}
-.btn:hover{ background:var(--btn-hover); }
-
 /* GALERIE */
 .gallery-section{
   max-width:1100px;
@@ -257,6 +194,12 @@ header h1{
   height:220px;
   object-fit:cover;
 }
+.gallery-card figcaption{
+  padding:8px 10px;
+  font-size:13px;
+  color:#4a3a30;
+  background:#fffdf9;
+}
 
 /* FAQ */
 .faq-section{
@@ -274,7 +217,7 @@ header h1{
   color:var(--brand);
 }
 .faq-category{
-  margin-top:35px;
+  margin-top:10px;
 }
 .faq-category h3{
   font-size:22px;
@@ -376,7 +319,6 @@ footer{
   padding:25px;
   margin-top:40px;
   border-radius:12px 12px 0 0;
-  font-size:14px;
 }
 footer a{
   color:#fff;
@@ -389,9 +331,6 @@ footer p{
 
 /* 简单响应式 */
 @media (max-width:768px){
-  .shop-grid{
-    grid-template-columns:1fr;
-  }
   .faq-question{
     font-size:16px;
   }
@@ -402,7 +341,7 @@ footer p{
 <body>
 
 <header>
-  <h1>🐾 Animaux Care – Services & Web documentaire</h1>
+  <h1>🐾 Animaux Care – Santé & Prévention</h1>
 </header>
 
 <!-- NAVIGATION -->
@@ -410,358 +349,343 @@ footer p{
   <div class="nav-wrap">
     <ul class="nav-list">
       <li><a href="#banner">Accueil</a></li>
-
-      <li class="dropdown">
-        <a href="#">Services ▼</a>
-        <div class="menu-panel">
-          <a href="toilettage.html">🐕 Toilettage</a>
-          <a href="pension.html">🏠 Pension</a>
-          <a href="garderie.html">🎾 Garderie</a>
-          <a href="education.html">🎓 Éducation</a>
-          <a href="soins-veterinaires.html">🏥 Soins vétérinaires</a>
-          <a href="adoption.html">❤️ Adoption</a>
-        </div>
-      </li>
-
-      <li><a href="#documentaire">Web documentaire</a></li>
-      <li><a href="#shop">Shop</a></li>
+      <li><a href="#documentaire">Article</a></li>
+      <li><a href="#besoins">Besoins de base</a></li>
+      <li><a href="#prevention">Prévention</a></li>
+      <li><a href="#securite">Sécurité</a></li>
+      <li><a href="#bien-etre">Bien-être émotionnel</a></li>
       <li><a href="#galerie">Galerie</a></li>
       <li><a href="#glossaire">Glossaire</a></li>
+      <li><a href="#biblio">Biblio</a></li>
     </ul>
   </div>
 </nav>
 
-<main>
+<!-- BANNER -->
+<div id="banner">
+  <img src="images/Top Bienvenue-1.jpg" alt="Bannière Animaux Care" class="hero-banner">
+</div>
 
-  <!-- BANNER -->
-  <div id="banner">
-    <img src="images/Top Bienvenue-1.jpg" alt="Animaux Care Banner" class="hero-banner">
-  </div>
+<!-- INTRO BLOCK -->
+<div class="intro-block">
+  <h2>Introduction – Pourquoi la santé et la prévention ?</h2>
+  <p class="subtitle">Prévenir chaque jour, c’est déjà prendre soin de son animal.</p>
+  <p>
+    Les chiens et les chats partagent notre quotidien, mais leurs besoins restent spécifiques.
+    Une grande partie de leur santé repose sur des gestes simples&nbsp;: une alimentation adaptée,
+    un environnement sécurisé, des interactions régulières et une observation attentive des petits changements.
+  </p>
+  <p>
+    Ce site propose un <strong>web documentaire</strong> organisé autour de quatre grands thèmes&nbsp;:
+    les <a href="#besoins">besoins de base</a>, la
+    <a href="#prevention">prévention au quotidien</a>, la
+    <a href="#securite">sécurité à la maison et à l’extérieur</a> et le
+    <a href="#bien-etre">bien-être émotionnel</a>. Il ne remplace pas l’avis d’un professionnel,
+    mais offre des repères concrets pour mieux comprendre et accompagner votre compagnon.
+  </p>
+</div>
 
-  <!-- INTRO BLOCK -->
-  <div class="intro-block">
-    <h2>Bienvenue chez PawCare !</h2>
-    <p class="subtitle">Plus qu'un simple service, une seconde famille pour eux.</p>
+<!-- ARTICLE / WEB DOCUMENTAIRE -->
+<article id="documentaire" class="main-article">
+  <header>
+    <h2>Chiens et chats : prévenir pour protéger</h2>
+    <p class="article-meta">
+      Web documentaire réalisé dans le cadre du Projet «&nbsp;document numérique&nbsp;» – Master CTM, 2025.
+    </p>
+
+    <!-- SOMMAIRE DE L'ARTICLE -->
+    <nav class="article-sommaire" aria-label="Sommaire de l'article">
+      <h3>Sommaire</h3>
+      <ul>
+        <li><a href="#besoins">1. Besoins de base au quotidien</a></li>
+        <li><a href="#prevention">2. Prévention simple au jour le jour</a></li>
+        <li><a href="#securite">3. Sécurité à la maison et à l’extérieur</a></li>
+        <li><a href="#bien-etre">4. Bien-être émotionnel et routine</a></li>
+        <li><a href="#glossaire">5. Glossaire</a></li>
+        <li><a href="#biblio">6. Bibliographie &amp; Sitographie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PARTIE 1 -->
+  <section id="besoins">
+    <h3>1. Besoins de base au quotidien</h3>
     <p>
-      Nous savons que votre animal est unique. C'est pourquoi nous offrons des services sur-mesure pour son bonheur
-      et votre tranquillité d'esprit. Que ce soit pour une <strong>promenade sportive</strong>, une
-      <strong>garde câline</strong> ou une <strong>mise en beauté</strong>, nous sommes là pour vous.
+      La santé d’un animal ne commence pas lorsqu’il tombe malade, mais dans la manière dont il vit chaque jour.
+      Eau fraîche disponible en permanence, alimentation équilibrée, espace de repos au calme et possibilité de bouger
+      sont des éléments essentiels pour limiter de nombreux troubles.
     </p>
+    <p>
+      Chez le chien comme chez le chat, un rythme régulier des repas et du sommeil contribue à stabiliser le
+      fonctionnement digestif et à réduire le stress. Observer l’appétit, la consommation d’eau, la qualité des selles
+      ou du pelage offre déjà de précieuses informations sur l’état général de l’animal.
+      Comme le rappellent de nombreux guides de <a href="#g-prevention">prévention</a>, «&nbsp;mieux vaut intervenir
+      tôt que trop tard&nbsp;».
+    </p>
+
+    <figure class="article-figure">
+      <img src="images/gallery-1.JPG" alt="Chien et chat au repos dans un environnement calme">
+      <figcaption>
+        Chien et chat au repos dans un coin calme du logement.
+        Source&nbsp;: Animaux Care, photo interne du projet.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- PARTIE 2 -->
+  <section id="prevention">
+    <h3>2. Prévention simple au jour le jour</h3>
+    <p>
+      La <a href="#g-prevention">prévention</a> passe par des gestes répétitifs mais fondamentaux&nbsp;:
+      brosser le pelage, vérifier les oreilles, couper les griffes lorsque c’est nécessaire, proposer des jeux adaptés
+      pour éviter l’ennui et surveiller le poids. Ces routines permettent de repérer très tôt un changement&nbsp;:
+      démangeaisons, gêne à la marche, nœuds dans le poil, griffes trop longues, etc.
+    </p>
+    <p>
+      L’<a href="#g-enrichissement">enrichissement</a> du milieu – tapis de fouille, jouets à mâcher, arbres à chat,
+      cachettes – aide à prévenir certains comportements indésirables. Un animal stimulé, mais pas sur-sollicité,
+      est souvent plus apaisé et moins destructeur.
+    </p>
+  </section>
+
+  <!-- PARTIE 3 -->
+  <section id="securite">
+    <h3>3. Sécurité à la maison et à l’extérieur</h3>
+    <p>
+      De nombreux accidents du quotidien sont liés à l’environnement&nbsp;:
+      plantes toxiques, produits ménagers, petits objets avalés, fenêtres ouvertes, fortes chaleurs sur un balcon
+      ou dans une voiture. Anticiper ces situations et adapter son logement est une forme de prévention à part entière.
+    </p>
+    <p>
+      À l’extérieur, la surveillance reste essentielle&nbsp;:
+      choisir un harnais ou un collier adapté, ajuster la durée des promenades à la météo, éviter les sols brûlants
+      en été et bien sécher l’animal après une sortie sous la pluie ou dans la neige.
+      Une simple vérification des coussinets ou du pelage après la balade réduit déjà de nombreux risques.
+    </p>
+  </section>
+
+  <!-- PARTIE 4 -->
+  <section id="bien-etre">
+    <h3>4. Bien-être émotionnel et routine</h3>
+    <p>
+      La santé ne se résume pas au corps&nbsp;: la dimension émotionnelle est essentielle.
+      Un chien ou un chat qui ne comprend pas ce qu’on attend de lui, qui reste seul trop longtemps ou qui vit
+      dans un environnement bruyant peut développer des
+      <a href="#g-signaux-stress">signaux de stress</a>&nbsp;:
+      agitation, léchages excessifs, miaulements répétés, malpropreté, etc.
+    </p>
+    <p>
+      Mettre en place une <a href="#g-routine">routine</a> prévisible (heures de repas, temps de jeu, moments de calme)
+      rassure l’animal. Des interactions positives, basées sur la récompense et la communication bienveillante,
+      renforcent la confiance. Pour certains animaux sensibles, organiser une
+      <a href="#g-zone-retrait">zone de retrait</a> – panier dans une pièce calme, perchoir en hauteur –
+      peut faire toute la différence.
+    </p>
+  </section>
+
+</article>
+
+<!-- GALERIE -->
+<section id="galerie" class="gallery-section">
+  <h2>Galerie – Visuels documentés</h2>
+
+  <div class="gallery-grid">
+
+    <figure class="gallery-card">
+      <img src="images/gallery-1.JPG" alt="Chien et chat se reposant ensemble">
+      <figcaption>
+        Chien et chat profitant d’un espace de repos partagé.
+        Source&nbsp;: Animaux Care, photo interne (projet étudiant).
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <img src="images/gallery-2.jpg" alt="Chien en promenade en milieu urbain">
+      <figcaption>
+        Promenade en laisse en milieu urbain, avec harnais adapté.
+        Source&nbsp;: Animaux Care, photo interne.
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <img src="images/gallery-3.jpg" alt="Chat observant son environnement depuis un perchoir">
+      <figcaption>
+        Chat observant l’extérieur depuis un perchoir en hauteur.
+        Source&nbsp;: Animaux Care, photo interne.
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <img src="images/gallery-4.jpg" alt="Coin repos aménagé pour un chien">
+      <figcaption>
+        Coin repos aménagé dans un endroit calme du logement.
+        Source&nbsp;: Animaux Care, photo interne.
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <img src="images/gallery-5.jpg" alt="Jeu interactif pour stimuler l’animal">
+      <figcaption>
+        Jeu interactif pour stimuler l’animal sans le sur-solliciter.
+        Source&nbsp;: Animaux Care, photo interne.
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <video controls>
+        <source src="images/IMG_2317.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        Séance de jeu calme en intérieur.
+        Source&nbsp;: Animaux Care, vidéo interne réalisée pour le projet.
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <video controls>
+        <source src="images/IMG_2318.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        Interaction quotidienne entre le propriétaire et son chien.
+        Source&nbsp;: Animaux Care, vidéo interne.
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-card">
+      <video controls>
+        <source src="images/IMG_7992.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        Exemple de promenade en extérieur dans un environnement urbain.
+        Source&nbsp;: Animaux Care, vidéo interne.
+      </figcaption>
+    </figure>
+
   </div>
+</section>
 
-  <!-- ARTICLE / WEB DOCUMENTAIRE -->
-  <article id="documentaire" class="main-article">
-    <header>
-      <h2>Prendre soin de son animal de compagnie en ville</h2>
-      <p class="article-meta">
-        Article web documentaire réalisé par le groupe PawCare – Master CTM, 2025.
-      </p>
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <h2>❓ FAQ – Questions fréquentes sur la santé au quotidien</h2>
 
-      <!-- SOMMAIRE DE L'ARTICLE -->
-      <nav class="article-sommaire" aria-label="Sommaire de l'article">
-        <h3>Sommaire</h3>
-        <ul>
-          <li><a href="#partie-bien-etre">1. Bien-être quotidien et toilettage</a></li>
-          <li><a href="#partie-sante">2. Santé, prévention et soins vétérinaires</a></li>
-          <li><a href="#partie-adoption">3. Adoption responsable et lien affectif</a></li>
-          <li><a href="#partie-consommation">4. Consommation responsable pour les animaux</a></li>
-          <li><a href="#glossaire">5. Glossaire</a></li>
-          <li><a href="#biblio">6. Bibliographie & Sitographie</a></li>
-        </ul>
-      </nav>
-    </header>
+  <div class="faq-category">
 
-    <!-- PARTIE 1 -->
-    <section id="partie-bien-etre">
-      <h3>1. Bien-être quotidien et toilettage</h3>
-      <p>
-        Le bien-être animal ne se limite pas à l’absence de maladie. Il s’appuie sur un ensemble de besoins
-        physiques et émotionnels : alimentation adaptée, activité physique, interactions sociales et environnement
-        sécurisé. Un toilettage régulier permet non seulement de garder l’animal propre, mais aussi d’observer sa peau,
-        ses oreilles ou ses coussinets et de repérer plus tôt d’éventuels problèmes.
-      </p>
-      <p>
-        Selon de nombreuses recommandations vétérinaires, un programme de soins adapté à la race, à l’âge et au niveau
-        d’activité de l’animal contribue à « maintenir une qualité de vie élevée tout au long de sa vie ».
-        Chez PawCare, nous intégrons ces recommandations en proposant des séances de toilettage personnalisées et des
-        conseils pratiques aux propriétaires.
-      </p>
-
-      <figure class="article-figure">
-        <img src="images/gallery-1.JPG" alt="Chien détendu après une séance de toilettage">
-        <figcaption>
-          Chien détendu après une séance de toilettage dans un environnement calme – Source : PawCare (photo interne).
-        </figcaption>
-      </figure>
-    </section>
-
-    <!-- PARTIE 2 -->
-    <section id="partie-sante">
-      <h3>2. Santé, prévention et soins vétérinaires</h3>
-      <p>
-        La prévention joue un rôle central dans la santé animale : vaccination, vermifugation, protection contre les
-        parasites externes, suivi du poids et dépistage précoce des maladies chroniques. Le vétérinaire est un partenaire
-        clé dans cette démarche. Une bonne communication entre le professionnel et le propriétaire permet de mieux
-        adapter les soins au mode de vie de l’animal.
-      </p>
-      <p>
-        Dans un contexte urbain, les animaux sont parfois confrontés à des sources de stress supplémentaires
-        (bruit, transports, promiscuité). Des consultations régulières permettent de discuter de ces facteurs,
-        d’ajuster l’environnement et, si nécessaire, de mettre en place des stratégies de gestion du stress.
-        L’objectif est de construire une relation de confiance durable entre le trio
-        « propriétaire – vétérinaire – animal ».
-      </p>
-    </section>
-
-    <!-- PARTIE 3 -->
-    <section id="partie-adoption">
-      <h3>3. Adoption responsable et lien affectif</h3>
-      <p>
-        L’adoption d’un animal de compagnie est un engagement sur plusieurs années. Avant d’accueillir un chien ou un chat,
-        il est essentiel de réfléchir à son budget, à son temps disponible et à la compatibilité entre le mode de vie du
-        foyer et les besoins de l’animal. De plus en plus de refuges et d’associations insistent sur la notion
-        d’« adoption responsable », c’est-à-dire une décision réfléchie, informée et accompagnée.
-      </p>
-      <p>
-        Le lien affectif qui se construit ensuite peut avoir un impact positif sur la santé mentale des humains :
-        sentiment de compagnie, routine rassurante, motivation pour sortir marcher, etc.
-        En retour, l’animal bénéficie d’un cadre de vie stable, d’interactions régulières et de repères sécurisants.
-        Les services comme la garderie ou la pension permettent de maintenir cet équilibre lorsque le propriétaire
-        doit s’absenter.
-      </p>
-    </section>
-
-    <!-- PARTIE 4 -->
-    <section id="partie-consommation">
-      <h3>4. Consommation responsable pour les animaux</h3>
-      <p>
-        L’offre de produits pour animaux de compagnie n’a jamais été aussi large : alimentation, jouets, accessoires,
-        cosmétiques, technologies connectées. Face à cette abondance, la consommation responsable consiste à choisir des
-        produits adaptés, durables et respectueux du bien-être animal. Un jouet ou un accessoire de mauvaise qualité peut
-        être source de blessures, de frustration ou de surconsommation.
-      </p>
-      <p>
-        La boutique PawCare met l’accent sur des produits sélectionnés, en expliquant leur usage, leurs limites et
-        les profils d’animaux auxquels ils sont adaptés. L’objectif est d’accompagner les propriétaires dans leurs choix
-        plutôt que d’encourager l’achat impulsif. Une approche raisonnée permet de réduire le gaspillage tout en
-        améliorant la qualité de vie de l’animal.
-      </p>
-    </section>
-
-  </article>
-
-  <!-- SHOP -->
-  <section id="shop" class="shop-section">
-    <h2>Notre boutique</h2>
-    <p>Découvrez une sélection d’articles pour le bien-être de vos animaux.</p>
-
-    <div class="shop-grid">
-
-      <!-- Chiens -->
-      <div class="shop-card">
-        <img src="images/Shop-chien-1.jpg" alt="Produits pour chiens">
-        <a class="btn" href="#">Pour les chiens</a>
-      </div>
-
-      <!-- Chats -->
-      <div class="shop-card">
-        <img src="images/Shop-chats-1.jpg" alt="Produits pour chats">
-        <a class="btn" href="#">Pour les chats</a>
-      </div>
-
-      <!-- Autres animaux -->
-      <div class="shop-card">
-        <img src="images/Shop-autres-1.jpg" alt="Produits pour autres animaux">
-        <a class="btn" href="#">Pour d'autres animaux</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- GALERIE -->
-  <section id="galerie" class="gallery-section">
-    <h2>Galerie</h2>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-card">
-        <img src="images/gallery-1.JPG" alt="Galerie image 1">
-      </div>
-
-      <div class="gallery-card">
-        <img src="images/gallery-2.jpg" alt="Galerie image 2">
-      </div>
-
-      <div class="gallery-card">
-        <img src="images/gallery-3.jpg" alt="Galerie image 3">
-      </div>
-
-      <div class="gallery-card">
-        <img src="images/gallery-4.jpg" alt="Galerie image 4">
-      </div>
-
-      <div class="gallery-card">
-        <img src="images/gallery-5.jpg" alt="Galerie image 5">
-      </div>
-
-      <div class="gallery-card">
-        <video controls>
-          <source src="images/IMG_2317.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="gallery-card">
-        <video controls>
-          <source src="images/IMG_2318.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="gallery-card">
-        <video controls>
-          <source src="images/IMG_7992.mp4" type="video/mp4">
-        </video>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="faq-section">
-    <h2>❓ FAQ – Questions fréquentes</h2>
-
-    <!-- GENERAL -->
-    <div class="faq-category">
-      <h3>🐾 Général</h3>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Quels animaux acceptez-vous ?
-          <span class="faq-icon">➤</span>
-        </button>
-        <div class="faq-answer">
-          Nous accueillons chiens, chats et petits animaux (lapins, cochons d’Inde, etc.).
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Faut-il réserver à l’avance ?
-          <span class="faq-icon">➤</span>
-        </button>
-        <div class="faq-answer">
-          Oui, nous recommandons une réservation au moins 48h à l’avance.
-        </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        À quelle fréquence dois-je peser mon animal ?
+        <span class="faq-icon">➤</span>
+      </button>
+      <div class="faq-answer">
+        Peser votre chien ou votre chat environ une fois par mois permet déjà de repérer une prise ou une perte
+        de poids inhabituelle. Pour les jeunes animaux ou ceux fragiles, une pesée plus fréquente peut être utile.
       </div>
     </div>
 
-    <!-- SERVICES -->
-    <div class="faq-category">
-      <h3>🐶 Services</h3>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Proposez-vous un service d'urgence ?
-          <span class="faq-icon">➤</span>
-        </button>
-        <div class="faq-answer">
-          Nous offrons un service d’urgence vétérinaire 7j/7 sur rendez-vous.
-        </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Quels signes peuvent indiquer un stress chez mon animal ?
+        <span class="faq-icon">➤</span>
+      </button>
+      <div class="faq-answer">
+        Agitation, léchage répétitif, halètement, miaulements ou aboiements excessifs, isolement,
+        changements d’appétit ou de propreté peuvent faire partie des <strong>signes de stress</strong>.
+        Il est important d’observer ce qui déclenche ces réactions.
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Quels documents dois-je fournir ?
-          <span class="faq-icon">➤</span>
-        </button>
-        <div class="faq-answer">
-          Carnet de vaccination, informations médicales et numéro du propriétaire.
-        </div>
-      </div>
-
     </div>
 
-    <!-- SHOP -->
-    <div class="faq-category">
-      <h3>🛍️ Boutique</h3>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Puis-je retourner un produit ?
-          <span class="faq-icon">➤</span>
-        </button>
-        <div class="faq-answer">
-          Oui, les retours sont acceptés sous 14 jours si l’article n’a pas été utilisé.
-        </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Mon animal a-t-il besoin d’un endroit réservé pour se reposer ?
+        <span class="faq-icon">➤</span>
+      </button>
+      <div class="faq-answer">
+        Oui, disposer d’une <strong>zone de retrait</strong> calme où l’animal peut se reposer sans être dérangé
+        contribue à son bien-être émotionnel et à la qualité de son sommeil.
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Les produits sont-ils garantis ?
-          <span class="faq-icon">➤</span>
-        </button>
-        <div class="faq-answer">
-          Tous nos produits sont garantis 1 an contre les défauts de fabrication.
-        </div>
-      </div>
-
     </div>
 
-  </section>
+    <div class="faq-item">
+      <button class="faq-question">
+        Certaines plantes ou aliments sont-ils dangereux ?
+        <span class="faq-icon">➤</span>
+      </button>
+      <div class="faq-answer">
+        Certaines plantes d’intérieur et plusieurs aliments courants (chocolat, oignon, raisin, etc.)
+        peuvent être toxiques pour les chiens et les chats. Il est recommandé de vérifier la toxicité
+        des plantes et de ne jamais donner d’aliments humains sans information fiable.
+      </div>
+    </div>
 
-  <!-- GLOSSAIRE -->
-  <section id="glossaire" class="glossaire-section">
-    <h2>Glossaire</h2>
-    <dl>
-      <dt>Toilettage</dt>
-      <dd>Ensemble des soins d’hygiène et d’esthétique apportés à l’animal : bain, brossage, coupe, etc.</dd>
+  </div>
+</section>
 
-      <dt>Pension</dt>
-      <dd>Service d’accueil temporaire pour un animal lorsque son propriétaire est absent.</dd>
+<!-- GLOSSAIRE -->
+<section id="glossaire" class="glossaire-section">
+  <h2>Glossaire</h2>
+  <dl>
+    <dt id="g-prevention">Prévention</dt>
+    <dd>
+      Ensemble des actions destinées à réduire le risque d’apparition de problèmes de santé ou de comportement
+      chez l’animal.
+    </dd>
 
-      <dt>Garderie</dt>
-      <dd>Accueil en journée pour les animaux afin d’éviter l’isolement et de proposer des activités adaptées.</dd>
+    <dt id="g-enrichissement">Enrichissement</dt>
+    <dd>
+      Aménagement du milieu de vie pour stimuler les sens et les capacités de l’animal (jeux, objets à explorer,
+      cachettes, arbres à chat, etc.).
+    </dd>
 
-      <dt>Socialisation</dt>
-      <dd>Processus par lequel un animal apprend à interagir de manière équilibrée avec les humains et les autres animaux.</dd>
+    <dt id="g-routine">Routine</dt>
+    <dd>
+      Organisation régulière des journées (repas, sorties, jeux, repos) qui aide l’animal à anticiper et à se sentir
+      en sécurité.
+    </dd>
 
-      <dt>Prévention</dt>
-      <dd>Ensemble des actions visant à éviter l’apparition de maladies ou de troubles du comportement.</dd>
-    </dl>
-  </section>
+    <dt id="g-signaux-stress">Signaux de stress</dt>
+    <dd>
+      Comportements indiquant un inconfort&nbsp;: halètement, léchage répétitif, gémissements, fuite, malpropreté,
+      agitation, etc.
+    </dd>
 
-  <!-- BIBLIO / SITOGRAPHIE -->
-  <section id="biblio" class="biblio-section">
-    <h2>Bibliographie (exemples de format)</h2>
-    <ul>
-      <li>
-        Auteur, A. (2023). <em>Titre de l’ouvrage sur le bien-être animal</em>. Éditeur.
-      </li>
-      <li>
-        Auteur, B. & Auteur, C. (2022). « Titre de l’article sur la relation homme–animal ». <em>Nom de la revue</em>, 15(2), 45-60.
-      </li>
-    </ul>
+    <dt id="g-zone-retrait">Zone de retrait</dt>
+    <dd>
+      Endroit calme où l’animal peut se reposer ou s’isoler, sans être dérangé par les bruits ou les interactions.
+    </dd>
+  </dl>
+</section>
 
-    <h2>Sitographie</h2>
-    <ul>
-      <li>
-        <a href="https://www.example-veterinaire.org" target="_blank" rel="noopener noreferrer">
-          Organisation vétérinaire – Conseils de prévention
-        </a>
-      </li>
-      <li>
-        <a href="https://www.example-refuge-animaux.fr" target="_blank" rel="noopener noreferrer">
-          Association de protection animale – Informations sur l’adoption responsable
-        </a>
-      </li>
-    </ul>
+<!-- BIBLIO / SITOGRAPHIE -->
+<section id="biblio" class="biblio-section">
+  <h2>Bibliographie (exemples de format)</h2>
+  <ul>
+    <li>
+      Auteur, A. (2021). <em>Titre de l’ouvrage sur la santé et le bien-être du chien</em>. Éditeur.
+    </li>
+    <li>
+      Auteur, B. &amp; Auteur, C. (2020). «&nbsp;Titre de l’article sur la prévention chez le chat&nbsp;».
+      <em>Nom de la revue</em>, 12(3), 45–58.
+    </li>
+  </ul>
 
-    <p style="font-size:13px;margin-top:14px;">
-      Remarque : ces références sont données à titre d’exemple pour le format. Remplacez-les par vos propres sources
-      réelles afin que la bibliographie soit compatible avec un logiciel comme Zotero.
-    </p>
-  </section>
+  <h2>Sitographie</h2>
+  <ul>
+    <li>
+      <a href="https://www.example-prevention-animale.org" target="_blank" rel="noopener noreferrer">
+        Site d’information sur la prévention des risques domestiques pour les animaux
+      </a>
+    </li>
+    <li>
+      <a href="https://www.example-bien-etre-animal.fr" target="_blank" rel="noopener noreferrer">
+        Plateforme dédiée au bien-être et à l’enrichissement du milieu de vie
+      </a>
+    </li>
+  </ul>
 
-</main>
+  <p style="font-size:13px;margin-top:14px;">
+    Remarque&nbsp;: ces références sont fournies à titre d’exemple de format compatible avec un logiciel de gestion
+    de références (comme Zotero). Remplacez-les par vos propres sources réelles.
+  </p>
+</section>
 
 <script>
 document.querySelectorAll(".faq-item").forEach(item=>{
@@ -776,20 +700,12 @@ document.querySelectorAll(".faq-item").forEach(item=>{
 
 <!-- FOOTER -->
 <footer>
-  <p>
-    <a href="mailto:contact@animauxcare.com?subject=Demande%20d'information%20-%20Animaux%20Care&body=Bonjour%2C%0AJe%20souhaite%20avoir%20des%20informations%20sur%20vos%20services.%0AMerci%20!">
-      Contact
-    </a>
-    &nbsp;|&nbsp;
-    <a href="a-propos.html">À propos</a>
-    &nbsp;|&nbsp;
-    <a href="mentions-legales.html">Mentions légales</a>
-  </p>
-  <p>Contenu sous licence
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">
-      CC BY-NC-SA 4.0
-    </a>
-  </p>
+  <a href="mailto:contact@AnimauxCare.com?subject=Question%20-%20Sant%C3%A9%20et%20pr%C3%A9vention&body=Bonjour%2C%0AJe%20souhaite%20avoir%20des%20informations%20sur%20votre%20site%20d%C3%A9di%C3%A9%20%C3%A0%20la%20sant%C3%A9%20et%20%C3%A0%20la%20pr%C3%A9vention%20des%20animaux.%0AMerci%20d%27avance.%0A">
+    Contact
+  </a> |
+  <a href="a-propos.html">À propos</a> |
+  <a href="mentions-legales.html">Mentions légales</a>
+
   <p>© Animaux Care, 2025 — Fait avec ❤️ en France</p>
 </footer>
 
