@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Animaux Care – Services pour Animaux</title>
-<meta name="description" content="Plateforme de services pour animaux : toilettage, pension, garderie, éducation, soins vétérinaires et adoption." />
+<title>Animaux Care – Web documentaire & services pour animaux</title>
 
 <style>
-/* ====== 基础颜色 ====== */
 :root{
-  --brand:#9E9086;
-  --accent:#177e93;
-  --bg:#FFF8F0;
-  --card:#FFF1CC;
-  --ink:#4B3A2E;
+  --brand:#A8642D;       /* Header/Footer brown */
+  --accent:#C07A3F;      /* Navigation */
+  --bg:#F6EBD8;          /* Cream background */
+  --ink:#4B3A2E;         /* Text brown */
+  --card:#FFFDF9;        /* White-cream cards */
+  --btn:#C07A3F;         /* Warm brown button */
+  --btn-hover:#A8642D;
 }
-*{box-sizing:border-box}
+
+*{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+
 body{
   margin:0;
   font-family:'Segoe UI', Arial, sans-serif;
-  background-color:var(--bg);
+  background:var(--bg);
   color:var(--ink);
 }
 
-/* ====== 顶部标题栏 ====== */
+/* HEADER */
 header{
-  background-color:var(--brand);
+  background:var(--brand);
   color:#fff;
   text-align:center;
   padding:14px 0;
@@ -37,114 +40,172 @@ header h1{
   font-size:32px;
 }
 
-/* ====== 顶部导航栏 ====== */
+/* NAVIGATION */
 .topnav{
   position:sticky;top:0;z-index:1000;
   background:var(--accent);
   border-bottom:1px solid rgba(255,255,255,.15);
+  padding:10px 0;
 }
-
 .nav-wrap{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 16px;
-  display:flex;
-  justify-content:center;
+  max-width:1100px; margin:0 auto; padding:0 16px;
+  display:flex; justify-content:center;
 }
-
 .nav-list{
-  list-style:none;
-  display:flex;
-  justify-content:space-evenly; 
-  align-items:center;
+  list-style:none; margin:0; padding:0;
+  display:flex; justify-content:space-evenly;
   width:100%;
-  margin:0;
-  padding:0;
 }
-
-.nav-list > li{
-  position:relative;
-}
-
 .nav-list a{
   color:#fff;
   text-decoration:none;
   font-weight:600;
-  text-transform:lowercase;
-  padding:12px 6px;
+  padding:16px 10px;
+  font-size:18px;
   border-bottom:2px solid transparent;
   display:inline-block;
 }
-.nav-list a:hover{
-  border-bottom-color:#fff;
-}
+.nav-list a:hover{ border-bottom-color:#fff; }
 
-/* ====== 下拉菜单 Services ====== */
-.dropdown:hover .menu-panel,
-.dropdown:focus-within .menu-panel{
-  opacity:1;visibility:visible;transform:translateY(0);
-}
-
+/* DROPDOWN */
+.dropdown{ position:relative; }
 .menu-panel{
-  background:#fff;
-  border-radius:12px;
-  position:absolute;
-  left:0;
-  top:100%;
-  min-width:250px;
-  margin-top:8px;
-  padding:8px;
-  border:1px solid #dfe3e6;
-  box-shadow:0 8px 20px rgba(0,0,0,0.1);
-  opacity:0;visibility:hidden;transform:translateY(6px);
-  transition:.18s ease;
+  opacity:0; visibility:hidden; transform:translateY(5px);
+  position:absolute; top:100%; left:0;
+  min-width:220px; background:#fff;
+  border-radius:10px; padding:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
+  transition:.15s ease;
 }
-
+.dropdown:hover .menu-panel{
+  opacity:1; visibility:visible; transform:translateY(0);
+}
 .menu-panel a{
-  color:#24475a;
-  padding:10px 12px;
-  display:flex;
-  border-radius:8px;
+  color:#444; padding:10px;
+  display:block; text-decoration:none;
+  border-radius:6px;
 }
-.menu-panel a:hover{
-  background:#f0f7f9;
+.menu-panel a:hover{ background:#f3f3f3; }
+
+/* BANNER - 显示完整图片 */
+.hero-banner{
+  width:100%;
+  height:auto;
+  display:block;
 }
 
-/* ====== ACCUEIL 主内容 ====== */
-article{
+/* INTRO BLOCK */
+.intro-block{
   max-width:1100px;
   margin:20px auto;
   background:var(--card);
-  padding:30px;
-  border-radius:12px;
+  padding:32px;
+  border-radius:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  font-size:18px;
+  line-height:1.6;
 }
-.exemple{
-  background:#FFE5B4;
-  padding:15px;
-  border-left:5px solid var(--brand);
-  border-radius:8px;
-  margin-top:20px;
+.intro-block .subtitle{
+  margin-top:4px;
+  font-style:italic;
+  color:#7a5a3a;
 }
 
-/* ====== SHOP 模块 ====== */
+/* ARTICLE / WEB DOCUMENTAIRE */
+.main-article{
+  max-width:1100px;
+  margin:30px auto;
+  background:var(--card);
+  padding:28px 30px;
+  border-radius:18px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.07);
+}
+.main-article header h2{
+  margin-top:0;
+  font-size:26px;
+}
+.article-meta{
+  font-size:14px;
+  color:#806958;
+}
+
+/* Sommaire */
+.article-sommaire{
+  margin:20px 0 24px;
+  padding:16px 20px;
+  background:#f1e2cc;
+  border-radius:14px;
+}
+.article-sommaire h3{
+  margin-top:0;
+  font-size:18px;
+}
+.article-sommaire ul{
+  margin:8px 0 0;
+  padding-left:18px;
+}
+.article-sommaire li{
+  margin-bottom:4px;
+}
+.article-sommaire a{
+  color:var(--accent);
+  text-decoration:none;
+}
+.article-sommaire a:hover{
+  text-decoration:underline;
+}
+
+/* sections inside article */
+.main-article section{
+  margin-top:24px;
+}
+.main-article h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+.main-article p{
+  line-height:1.7;
+  font-size:16px;
+}
+
+/* Figure + légende */
+.article-figure{
+  margin:18px 0;
+  text-align:center;
+}
+.article-figure img{
+  max-width:100%;
+  border-radius:14px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.12);
+}
+.article-figure figcaption{
+  font-size:14px;
+  margin-top:8px;
+  color:#6d5b4b;
+}
+
+/* SHOP SECTION */
 .shop-section{
   max-width:1100px;
-  margin:30px auto 20px;
+  margin:30px auto;
   background:#fff;
   padding:24px 28px;
   border-radius:14px;
   box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
+.shop-section h2{
+  margin-top:0;
+}
 .shop-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:18px;
 }
 .shop-card{
-  background:#f9fafb;
-  border:1px solid #e3e8ec;
+  background:#f9f9f9;
   border-radius:12px;
   padding:12px;
+  border:1px solid #e6e6e6;
   text-align:center;
 }
 .shop-card img{
@@ -155,56 +216,203 @@ article{
 }
 .btn{
   display:inline-block;
-  margin-top:20px;
-  padding:8px 14px;
-  background:var(--accent);
-  color:#fff;
-  text-decoration:none;
+  margin-top:14px;
+  padding:10px 16px;
+  background:var(--btn);
+  color:white;
   border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
   font-size:15px;
 }
-.btn:hover{
-  opacity:.9;
+.btn:hover{ background:var(--btn-hover); }
+
+/* GALERIE */
+.gallery-section{
+  max-width:1100px;
+  margin:30px auto;
+  background:#fff;
+  padding:24px 28px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.gallery-section h2{
+  margin-top:0;
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+  gap:16px;
+  margin-top:16px;
+}
+.gallery-card{
+  background:#f9f9f9;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #e6e6e6;
+}
+.gallery-card img,
+.gallery-card video{
+  width:100%;
+  height:220px;
+  object-fit:cover;
 }
 
-/* ====== 页脚 ====== */
+/* FAQ */
+.faq-section{
+  max-width:1100px;
+  margin:40px auto;
+  background:var(--card);
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+.faq-section h2{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:25px;
+  color:var(--brand);
+}
+.faq-category{
+  margin-top:35px;
+}
+.faq-category h3{
+  font-size:22px;
+  margin-bottom:15px;
+  padding-left:5px;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.faq-item{
+  margin-bottom:15px;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #e5d8c9;
+}
+.faq-question{
+  width:100%;
+  background:#fff;
+  padding:16px;
+  font-size:18px;
+  text-align:left;
+  cursor:pointer;
+  color:var(--ink);
+  border:none;
+  outline:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:background .2s;
+}
+.faq-question:hover{
+  background:rgba(200,160,120,0.12);
+}
+.faq-icon{
+  font-size:22px;
+  color:var(--brand);
+  transition:transform .2s;
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  padding:0 18px;
+  background:#fff7ef;
+  color:#4a3a30;
+  font-size:16px;
+  line-height:1.6;
+  transition:max-height .3s ease, padding .3s ease;
+  border-top:1px solid #eadac3;
+}
+.faq-item.open .faq-answer{
+  max-height:300px;
+  padding:16px 18px;
+}
+.faq-item.open .faq-icon{
+  transform:rotate(90deg);
+}
+
+/* GLOSSAIRE & BIBLIO */
+.glossaire-section,
+.biblio-section{
+  max-width:1100px;
+  margin:30px auto;
+  background:#fff;
+  padding:24px 28px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.glossaire-section h2,
+.biblio-section h2{
+  margin-top:0;
+}
+.glossaire-section dl{
+  margin:0;
+}
+.glossaire-section dt{
+  font-weight:700;
+  margin-top:12px;
+}
+.glossaire-section dd{
+  margin:4px 0 8px 0;
+  font-size:15px;
+}
+.biblio-section ul{
+  margin-top:8px;
+  padding-left:20px;
+}
+.biblio-section li{
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+/* FOOTER */
 footer{
   background:var(--brand);
   color:#fff;
   text-align:center;
-  padding:22px 16px;
-  border-radius:12px 12px 0 0;
+  padding:25px;
   margin-top:40px;
+  border-radius:12px 12px 0 0;
+  font-size:14px;
 }
 footer a{
-  color:#fff;text-decoration:none;
+  color:#fff;
+  text-decoration:none;
 }
-footer a:hover{text-decoration:underline;}
-footer .footer-links{margin-bottom:10px;}
-footer .socials{margin-top:10px;font-size:17px;}
+footer a:hover{ text-decoration:underline; }
+footer p{
+  margin:6px 0;
+}
 
-@media(max-width:768px){
-  .shop-grid{grid-template-columns:1fr;}
+/* 简单响应式 */
+@media (max-width:768px){
+  .shop-grid{
+    grid-template-columns:1fr;
+  }
+  .faq-question{
+    font-size:16px;
+  }
 }
 </style>
 </head>
 
-
 <body>
 
 <header>
-  <h1>🐾 Animaux Care – Services pour Animaux</h1>
+  <h1>🐾 Animaux Care – Services & Web documentaire</h1>
 </header>
 
-<!-- ====== 顶部导航 ====== -->
+<!-- NAVIGATION -->
 <nav class="topnav">
   <div class="nav-wrap">
     <ul class="nav-list">
-
-      <li><a href="index.html#home">accueil</a></li>
+      <li><a href="#banner">Accueil</a></li>
 
       <li class="dropdown">
-        <a href="#">services ▼</a>
+        <a href="#">Services ▼</a>
         <div class="menu-panel">
           <a href="toilettage.html">🐕 Toilettage</a>
           <a href="pension.html">🏠 Pension</a>
@@ -215,75 +423,373 @@ footer .socials{margin-top:10px;font-size:17px;}
         </div>
       </li>
 
-      <li><a href="#shop">shop</a></li>
-
-      <li><a href="galerie.html">galerie</a></li>
-
+      <li><a href="#documentaire">Web documentaire</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#glossaire">Glossaire</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ====== ACCUEIL ====== -->
-<article id="home">
-  <h2>Bienvenue sur Animaux Care !</h2>
-  <p>Nous aimons les animaux autant que vous 🐶🐱  
-     Trouvez facilement un service fiable pour votre compagnon : promenade, toilettage, pension, garderie ou vétérinaire.</p>
+<main>
 
-  <div class="exemple">
-    <h3>✨ Exemple : Service de Toilettage</h3>
-    <p>Réservez un toiletteur certifié qui viendra chercher votre chien, l’amènera au salon de beauté, et vous le ramènera tout propre !</p>
+  <!-- BANNER -->
+  <div id="banner">
+    <img src="images/Top Bienvenue-1.jpg" alt="Animaux Care Banner" class="hero-banner">
   </div>
 
-  <div class="exemple">
-    <h3>💡 Conseil du Jour</h3>
-    <p>Un chien heureux, c’est un chien qui sort ! Offrez-lui une promenade quotidienne de 30 minutes minimum.</p>
+  <!-- INTRO BLOCK -->
+  <div class="intro-block">
+    <h2>Bienvenue chez PawCare !</h2>
+    <p class="subtitle">Plus qu'un simple service, une seconde famille pour eux.</p>
+    <p>
+      Nous savons que votre animal est unique. C'est pourquoi nous offrons des services sur-mesure pour son bonheur
+      et votre tranquillité d'esprit. Que ce soit pour une <strong>promenade sportive</strong>, une
+      <strong>garde câline</strong> ou une <strong>mise en beauté</strong>, nous sommes là pour vous.
+    </p>
   </div>
-</article>
 
+  <!-- ARTICLE / WEB DOCUMENTAIRE -->
+  <article id="documentaire" class="main-article">
+    <header>
+      <h2>Prendre soin de son animal de compagnie en ville</h2>
+      <p class="article-meta">
+        Article web documentaire réalisé par le groupe PawCare – Master CTM, 2025.
+      </p>
 
-<!-- ====== SHOP ====== -->
-<section id="shop" class="shop-section">
-  <h2>Notre boutique</h2>
-  <p>Découvrez une sélection d’articles pour le bien-être de vos animaux.</p>
+      <!-- SOMMAIRE DE L'ARTICLE -->
+      <nav class="article-sommaire" aria-label="Sommaire de l'article">
+        <h3>Sommaire</h3>
+        <ul>
+          <li><a href="#partie-bien-etre">1. Bien-être quotidien et toilettage</a></li>
+          <li><a href="#partie-sante">2. Santé, prévention et soins vétérinaires</a></li>
+          <li><a href="#partie-adoption">3. Adoption responsable et lien affectif</a></li>
+          <li><a href="#partie-consommation">4. Consommation responsable pour les animaux</a></li>
+          <li><a href="#glossaire">5. Glossaire</a></li>
+          <li><a href="#biblio">6. Bibliographie & Sitographie</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <div class="shop-grid">
+    <!-- PARTIE 1 -->
+    <section id="partie-bien-etre">
+      <h3>1. Bien-être quotidien et toilettage</h3>
+      <p>
+        Le bien-être animal ne se limite pas à l’absence de maladie. Il s’appuie sur un ensemble de besoins
+        physiques et émotionnels : alimentation adaptée, activité physique, interactions sociales et environnement
+        sécurisé. Un toilettage régulier permet non seulement de garder l’animal propre, mais aussi d’observer sa peau,
+        ses oreilles ou ses coussinets et de repérer plus tôt d’éventuels problèmes.
+      </p>
+      <p>
+        Selon de nombreuses recommandations vétérinaires, un programme de soins adapté à la race, à l’âge et au niveau
+        d’activité de l’animal contribue à « maintenir une qualité de vie élevée tout au long de sa vie ».
+        Chez PawCare, nous intégrons ces recommandations en proposant des séances de toilettage personnalisées et des
+        conseils pratiques aux propriétaires.
+      </p>
 
-    <!-- Chiens -->
-    <div class="shop-card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800" />
-      <a class="btn" href="#">Pour chiens</a>
+      <figure class="article-figure">
+        <img src="images/gallery-1.JPG" alt="Chien détendu après une séance de toilettage">
+        <figcaption>
+          Chien détendu après une séance de toilettage dans un environnement calme – Source : PawCare (photo interne).
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- PARTIE 2 -->
+    <section id="partie-sante">
+      <h3>2. Santé, prévention et soins vétérinaires</h3>
+      <p>
+        La prévention joue un rôle central dans la santé animale : vaccination, vermifugation, protection contre les
+        parasites externes, suivi du poids et dépistage précoce des maladies chroniques. Le vétérinaire est un partenaire
+        clé dans cette démarche. Une bonne communication entre le professionnel et le propriétaire permet de mieux
+        adapter les soins au mode de vie de l’animal.
+      </p>
+      <p>
+        Dans un contexte urbain, les animaux sont parfois confrontés à des sources de stress supplémentaires
+        (bruit, transports, promiscuité). Des consultations régulières permettent de discuter de ces facteurs,
+        d’ajuster l’environnement et, si nécessaire, de mettre en place des stratégies de gestion du stress.
+        L’objectif est de construire une relation de confiance durable entre le trio
+        « propriétaire – vétérinaire – animal ».
+      </p>
+    </section>
+
+    <!-- PARTIE 3 -->
+    <section id="partie-adoption">
+      <h3>3. Adoption responsable et lien affectif</h3>
+      <p>
+        L’adoption d’un animal de compagnie est un engagement sur plusieurs années. Avant d’accueillir un chien ou un chat,
+        il est essentiel de réfléchir à son budget, à son temps disponible et à la compatibilité entre le mode de vie du
+        foyer et les besoins de l’animal. De plus en plus de refuges et d’associations insistent sur la notion
+        d’« adoption responsable », c’est-à-dire une décision réfléchie, informée et accompagnée.
+      </p>
+      <p>
+        Le lien affectif qui se construit ensuite peut avoir un impact positif sur la santé mentale des humains :
+        sentiment de compagnie, routine rassurante, motivation pour sortir marcher, etc.
+        En retour, l’animal bénéficie d’un cadre de vie stable, d’interactions régulières et de repères sécurisants.
+        Les services comme la garderie ou la pension permettent de maintenir cet équilibre lorsque le propriétaire
+        doit s’absenter.
+      </p>
+    </section>
+
+    <!-- PARTIE 4 -->
+    <section id="partie-consommation">
+      <h3>4. Consommation responsable pour les animaux</h3>
+      <p>
+        L’offre de produits pour animaux de compagnie n’a jamais été aussi large : alimentation, jouets, accessoires,
+        cosmétiques, technologies connectées. Face à cette abondance, la consommation responsable consiste à choisir des
+        produits adaptés, durables et respectueux du bien-être animal. Un jouet ou un accessoire de mauvaise qualité peut
+        être source de blessures, de frustration ou de surconsommation.
+      </p>
+      <p>
+        La boutique PawCare met l’accent sur des produits sélectionnés, en expliquant leur usage, leurs limites et
+        les profils d’animaux auxquels ils sont adaptés. L’objectif est d’accompagner les propriétaires dans leurs choix
+        plutôt que d’encourager l’achat impulsif. Une approche raisonnée permet de réduire le gaspillage tout en
+        améliorant la qualité de vie de l’animal.
+      </p>
+    </section>
+
+  </article>
+
+  <!-- SHOP -->
+  <section id="shop" class="shop-section">
+    <h2>Notre boutique</h2>
+    <p>Découvrez une sélection d’articles pour le bien-être de vos animaux.</p>
+
+    <div class="shop-grid">
+
+      <!-- Chiens -->
+      <div class="shop-card">
+        <img src="images/Shop-chien-1.jpg" alt="Produits pour chiens">
+        <a class="btn" href="#">Pour les chiens</a>
+      </div>
+
+      <!-- Chats -->
+      <div class="shop-card">
+        <img src="images/Shop-chats-1.jpg" alt="Produits pour chats">
+        <a class="btn" href="#">Pour les chats</a>
+      </div>
+
+      <!-- Autres animaux -->
+      <div class="shop-card">
+        <img src="images/Shop-autres-1.jpg" alt="Produits pour autres animaux">
+        <a class="btn" href="#">Pour d'autres animaux</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="gallery-section">
+    <h2>Galerie</h2>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+        <img src="images/gallery-1.JPG" alt="Galerie image 1">
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/gallery-2.jpg" alt="Galerie image 2">
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/gallery-3.jpg" alt="Galerie image 3">
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/gallery-4.jpg" alt="Galerie image 4">
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/gallery-5.jpg" alt="Galerie image 5">
+      </div>
+
+      <div class="gallery-card">
+        <video controls>
+          <source src="images/IMG_2317.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="gallery-card">
+        <video controls>
+          <source src="images/IMG_2318.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="gallery-card">
+        <video controls>
+          <source src="images/IMG_7992.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <h2>❓ FAQ – Questions fréquentes</h2>
+
+    <!-- GENERAL -->
+    <div class="faq-category">
+      <h3>🐾 Général</h3>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Quels animaux acceptez-vous ?
+          <span class="faq-icon">➤</span>
+        </button>
+        <div class="faq-answer">
+          Nous accueillons chiens, chats et petits animaux (lapins, cochons d’Inde, etc.).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Faut-il réserver à l’avance ?
+          <span class="faq-icon">➤</span>
+        </button>
+        <div class="faq-answer">
+          Oui, nous recommandons une réservation au moins 48h à l’avance.
+        </div>
+      </div>
     </div>
 
-    <!-- Chats -->
-    <div class="shop-card">
-      <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800" />
-      <a class="btn" href="#">Pour chats</a>
+    <!-- SERVICES -->
+    <div class="faq-category">
+      <h3>🐶 Services</h3>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Proposez-vous un service d'urgence ?
+          <span class="faq-icon">➤</span>
+        </button>
+        <div class="faq-answer">
+          Nous offrons un service d’urgence vétérinaire 7j/7 sur rendez-vous.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Quels documents dois-je fournir ?
+          <span class="faq-icon">➤</span>
+        </button>
+        <div class="faq-answer">
+          Carnet de vaccination, informations médicales et numéro du propriétaire.
+        </div>
+      </div>
+
     </div>
 
-    <!-- Autres animaux -->
-    <div class="shop-card">
-      <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=800" />
-      <a class="btn" href="#">Pour d'autres animaux</a>
+    <!-- SHOP -->
+    <div class="faq-category">
+      <h3>🛍️ Boutique</h3>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Puis-je retourner un produit ?
+          <span class="faq-icon">➤</span>
+        </button>
+        <div class="faq-answer">
+          Oui, les retours sont acceptés sous 14 jours si l’article n’a pas été utilisé.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Les produits sont-ils garantis ?
+          <span class="faq-icon">➤</span>
+        </button>
+        <div class="faq-answer">
+          Tous nos produits sont garantis 1 an contre les défauts de fabrication.
+        </div>
+      </div>
+
     </div>
 
-  </div>
-</section>
+  </section>
 
+  <!-- GLOSSAIRE -->
+  <section id="glossaire" class="glossaire-section">
+    <h2>Glossaire</h2>
+    <dl>
+      <dt>Toilettage</dt>
+      <dd>Ensemble des soins d’hygiène et d’esthétique apportés à l’animal : bain, brossage, coupe, etc.</dd>
 
-<!-- ====== FOOTER ====== -->
+      <dt>Pension</dt>
+      <dd>Service d’accueil temporaire pour un animal lorsque son propriétaire est absent.</dd>
+
+      <dt>Garderie</dt>
+      <dd>Accueil en journée pour les animaux afin d’éviter l’isolement et de proposer des activités adaptées.</dd>
+
+      <dt>Socialisation</dt>
+      <dd>Processus par lequel un animal apprend à interagir de manière équilibrée avec les humains et les autres animaux.</dd>
+
+      <dt>Prévention</dt>
+      <dd>Ensemble des actions visant à éviter l’apparition de maladies ou de troubles du comportement.</dd>
+    </dl>
+  </section>
+
+  <!-- BIBLIO / SITOGRAPHIE -->
+  <section id="biblio" class="biblio-section">
+    <h2>Bibliographie (exemples de format)</h2>
+    <ul>
+      <li>
+        Auteur, A. (2023). <em>Titre de l’ouvrage sur le bien-être animal</em>. Éditeur.
+      </li>
+      <li>
+        Auteur, B. & Auteur, C. (2022). « Titre de l’article sur la relation homme–animal ». <em>Nom de la revue</em>, 15(2), 45-60.
+      </li>
+    </ul>
+
+    <h2>Sitographie</h2>
+    <ul>
+      <li>
+        <a href="https://www.example-veterinaire.org" target="_blank" rel="noopener noreferrer">
+          Organisation vétérinaire – Conseils de prévention
+        </a>
+      </li>
+      <li>
+        <a href="https://www.example-refuge-animaux.fr" target="_blank" rel="noopener noreferrer">
+          Association de protection animale – Informations sur l’adoption responsable
+        </a>
+      </li>
+    </ul>
+
+    <p style="font-size:13px;margin-top:14px;">
+      Remarque : ces références sont données à titre d’exemple pour le format. Remplacez-les par vos propres sources
+      réelles afin que la bibliographie soit compatible avec un logiciel comme Zotero.
+    </p>
+  </section>
+
+</main>
+
+<script>
+document.querySelectorAll(".faq-item").forEach(item=>{
+  const btn = item.querySelector(".faq-question");
+  if(btn){
+    btn.onclick = () => {
+      item.classList.toggle("open");
+    };
+  }
+});
+</script>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-links">
-    <a href="mailto:contact@AnimauxCare.com">📧 Contact</a> |
-    <a href="a-propos.html">À propos</a> |
+  <p>
+    <a href="mailto:contact@animauxcare.com?subject=Demande%20d'information%20-%20Animaux%20Care&body=Bonjour%2C%0AJe%20souhaite%20avoir%20des%20informations%20sur%20vos%20services.%0AMerci%20!">
+      Contact
+    </a>
+    &nbsp;|&nbsp;
+    <a href="a-propos.html">À propos</a>
+    &nbsp;|&nbsp;
     <a href="mentions-legales.html">Mentions légales</a>
-  </div>
-
-  <div class="socials">
-    Suivez-nous :  
-    <a href="https://facebook.com" target="_blank">Facebook</a> ·
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-  </div>
-
+  </p>
+  <p>Contenu sous licence
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">
+      CC BY-NC-SA 4.0
+    </a>
+  </p>
   <p>© Animaux Care, 2025 — Fait avec ❤️ en France</p>
 </footer>
 
